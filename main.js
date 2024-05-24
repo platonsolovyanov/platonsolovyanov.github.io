@@ -7,12 +7,14 @@ let todos = document.getElementsByClassName("todos")[0];
 
 const todosSession = sessionStorage.getItem("todos");
 
-const todosParse = JSON.parse(todosSession);
-if (todosParse.length > 0) {
-    arr = todosParse;
-    todosParse.map(el => {
-        addTodo(el)
-    })
+if (todosSession) {
+    const todosParse = JSON.parse(todosSession);
+    if(todosParse.length > 0) {
+        arr = todosParse;
+        todosParse.map(el => {
+            addTodo(el)
+        })
+    }
 }
 
 let clearBtn = document.getElementsByClassName("clear-btn");
